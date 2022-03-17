@@ -26,22 +26,22 @@
     <meta property="og:description" content="{{ $meta->meta_description ?? '' }}">
     <meta property="og:keywords" content="{{ $meta->meta_keywords ?? '' }}">
     <meta property="og:url" content="https://smartoboi.com">
-    {{-- <meta property="og:image" content="">
-    <meta property="og:image:width" content="">
-    <meta property="og:image:height" content=""> --}}
-    <!-- CSRF Token -->
+{{-- <meta property="og:image" content="">
+<meta property="og:image:width" content="">
+<meta property="og:image:height" content=""> --}}
+<!-- CSRF Token -->
     <meta name="csrf-token" content="O5KfwAfxVXfFOgqp7hKMFeSx0gaRcmqVvPykBPFR">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
 
-    <!--LiveInternet counter--><script>
+<!--LiveInternet counter--><script>
     new Image().src = "https://counter.yadro.ru/hit?r"+
-    escape(document.referrer)+((typeof(screen)=="undefined")?"":
-    ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
-    screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
-    ";h"+escape(document.title.substring(0,150))+
-    ";"+Math.random();</script><!--/LiveInternet-->
+        escape(document.referrer)+((typeof(screen)=="undefined")?"":
+            ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+                screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+        ";h"+escape(document.title.substring(0,150))+
+        ";"+Math.random();</script><!--/LiveInternet-->
 
 <header class="header" id="header-main">
     <!-- Topbar -->
@@ -61,14 +61,14 @@
                                         Создать аккаунт
                                     </a>
                                 </li>
-                            @endif --}}
+                            @endif
                             @if (Route::has('login'))
                                 <li class="nav-item ml-1">
                                     <a href="{{ route('login') }}" class="btn btn-warning text-white nav-link">
                                         Войти
                                     </a>
                                 </li>
-                            @endif
+                            @endif --}}
                         @else
                             <li class="nav-item align-self-center">
                                 <a class="" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -142,6 +142,7 @@
                     <li><a href="#">Блог</a></li>
                     <li><a href="#">Правила</a></li>
                     <li><a href="#">FAQ</a></li>
+                    <li><a href="{{ route('information', ['type' => 'privacy', 'name' => 'SmartOboi']) }}">Политика конфиденциальности</a></li>
                 </ul>
             </div>
             <div class="col-md-2 col-sm-4">
@@ -184,9 +185,9 @@
                     <li class="nav-item ali">
                         <!--LiveInternet logo-->
                         <a href="https://www.liveinternet.ru/click"
-                        target="_blank"><img src="https://counter.yadro.ru/logo?18.2"
-                        title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"
-                        alt="" style="border:0" width="88" height="31"/></a>
+                           target="_blank"><img src="https://counter.yadro.ru/logo?18.2"
+                                                title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"
+                                                alt="" style="border:0" width="88" height="31"/></a>
                         <!--/LiveInternet-->
                     </li>
                 </ul>

@@ -27,5 +27,7 @@ Route::prefix('v1')->group(function() {
     Route::get('database.getImagePars', [Api\ImageParsController::class, 'getImagePars']);
     Route::get('database.getAdModal', [Api\AdModalController::class, 'getAdModal']);
 
+    Route::get('database.getQuestions', [Api\QuestionController::class, 'getQuestion']);
+
     //Route::get('database.getImagePars', [Api\ImageParsController::class, 'getImagePars']);
 });

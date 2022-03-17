@@ -13,6 +13,10 @@ class Category extends Model
     public static $withRelations = [
         'wallpaper'
     ];
+    
+    public function scopeActive($query) {
+        return $query->where('active', 1);
+    }
 
     public function wallpaper() {
         return $this->hasMany(Wallpaper::class);
@@ -36,18 +40,27 @@ class Category extends Model
 
     public static function queryData($query, $request) {
 
+        if($request->category_id > 0) {
+            $query->category_id = $request->category_id;
+        }
         $query->title_ru = $request->title_ru;
+        $query->title_uk = $request->title_uk;
         $query->title_en = $request->title_en;
         $query->slug = Str::of($request->title_en)->slug('_');
         $query->text_short_ru = $request->text_short_ru;
+        $query->text_short_uk = $request->text_short_uk;
         $query->text_short_en = $request->text_short_en;
         $query->text_full_ru = $request->text_full_ru;
+        $query->text_full_uk = $request->text_full_uk;
         $query->text_full_en = $request->text_full_en;
         $query->meta_title_ru = $request->meta_title_ru;
+        $query->meta_title_uk = $request->meta_title_uk;
         $query->meta_title_en = $request->meta_title_en;
         $query->meta_description_ru = $request->meta_description_ru;
+        $query->meta_description_uk = $request->meta_description_uk;
         $query->meta_description_en = $request->meta_description_en;
         $query->meta_keywords_ru = $request->meta_keywords_ru;
+        $query->meta_keywords_uk = $request->meta_keywords_uk;
         $query->meta_keywords_en = $request->meta_keywords_en;
         $query->active = $request->active ? 1 : 0;
 

@@ -122,7 +122,9 @@ class WallpaperController extends Controller
     public function destroy(Request $request, $id)
     {
         $query = Wallpaper::findOrFail($request->id);
+        deleteFile('/img/img-40x40/' . $query->img);
         deleteFile('/img/img-80x80/' . $query->img);
+        deleteFile('/img/img-130x280/' . $query->img);
         deleteFile('/img/img-300x300/' . $query->img);
         deleteFile('/img/original/' . $query->img);
         $query->delete();

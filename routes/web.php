@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin as Admin;
 use App\Http\Controllers\WallpaperController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\InformationController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Auth::routes(['register' => false]);
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
@@ -27,6 +29,8 @@ Route::prefix('/wallpaper')->name('wallpaper.')->group(function() {
     Route::get('/{category}/{id}', [WallpaperController::class, 'view'])->name('view');
     //Route::get('/download/{id}', [WallpaperController::class, 'download'])->name('download');
 });
+
+Route::get('information/{type}/{name}', [InformationController::class, 'index'])->name('information');
 
 Route::middleware('auth')->prefix('/aaadminca')->name('aaadminca.')->group(function() {
     Route::get('/', [Admin\HomeController::class, 'index'])->name('home');
