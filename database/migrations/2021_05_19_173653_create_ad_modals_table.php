@@ -16,10 +16,10 @@ class CreateAdModalsTable extends Migration
         Schema::create('ad_modals', function (Blueprint $table) {
             $table->id();
             $table->string('title_ru');
-            $table->string('title_ua');
+            $table->string('title_uk');
             $table->string('title_en');
             $table->text('description_ru');
-            $table->text('description_ua');
+            $table->text('description_uk');
             $table->text('description_en');
             $table->text('url');
             $table->string('img')->nullable();
