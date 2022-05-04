@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\WallpaperRequest;
 use App\Models\Category;
 use App\Models\Wallpaper;
+use App\Models\WallpaperCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -41,9 +42,9 @@ class WallpaperController extends Controller
             }
             $wallpapers = Wallpaper::queryEnd($query);
             return view('admin.wallpapers.list', compact('wallpapers', 'categories'));
-        } else {
-            return view('admin.wallpapers.list', compact('categories'));
         }
+
+        return view('admin.wallpapers.list', compact('categories'));
     }
 
     /**
@@ -71,6 +72,7 @@ class WallpaperController extends Controller
         $query = new Wallpaper();
         $query = Wallpaper::queryData($query, $request);
         $query->save();
+
         return redirect()->route('aaadminca.wallpapers.index', ['category_id' => $request->category_id]);
     }
 
@@ -122,11 +124,7 @@ class WallpaperController extends Controller
     public function destroy(Request $request, $id)
     {
         $query = Wallpaper::findOrFail($request->id);
-        deleteFile('/img/img-40x40/' . $query->img);
-        deleteFile('/img/img-80x80/' . $query->img);
-        deleteFile('/img/img-130x280/' . $query->img);
-        deleteFile('/img/img-300x300/' . $query->img);
-        deleteFile('/img/original/' . $query->img);
+        deleteFile($query->img);
         $query->delete();
         return redirect()->back();
     }

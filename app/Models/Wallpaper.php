@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\ImageController;
+use App\Models\WallpaperCategory;
 
 class Wallpaper extends Model
 {

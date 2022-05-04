@@ -18,7 +18,11 @@
                 <select class="form-control" data-toggle="select" name="category_id">
                     <option value="0">Выберите категорию</option>
                     @foreach($categories as $category)
-                        <option value="{{ $category->id }}" {{ old('category_id', $wallpaper->category->id ?? request()->category_id ?? '') == $category->id ? "selected" : "" }}>{{ $category->title_ru }}</option>
+                        <option
+                            value="{{ $category->id }}"
+                            {{ old('category_id', $wallpaper->category->id ?? request()->category_id ?? '') == $category->id ? "selected" : "" }}
+                            {{ $categories->where('category_id', $category->id)->count() > 0 ? 'disabled' : '' }}
+                        >{{ $category->title_ru }}</option>
                     @endforeach
                 </select>
                 @error('category_id')
