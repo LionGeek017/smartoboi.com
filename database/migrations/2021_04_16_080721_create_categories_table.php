@@ -35,7 +35,7 @@ class CreateCategoriesTable extends Migration
             $table->text('meta_keywords_ru')->nullable();
             $table->text('meta_keywords_uk')->nullable();
             $table->text('meta_keywords_en')->nullable();
-            $table->string('img');
+            $table->string('img')->nullable();
             $table->integer('active')->default(1);
             $table->timestamps();
         });

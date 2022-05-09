@@ -25,7 +25,7 @@ class WallpaperRequest extends FormRequest
     {
         return [
             'category_id' => 'required|integer|not_in:0',
-            'img' => 'mimes:jpeg,png'
+            'img' => 'mimes:jpeg,png|max:5000'
         ];
     }
 }
