@@ -47,7 +47,7 @@ class WallpaperController extends Controller
             }
         } else {
             $main_category_ids = Category::where('category_id', 0)
-                ->where('slug', '!=', 'ukraine')
+                //->where('slug', '!=', 'ukraine')
                 ->pluck('id')
                 ->toArray();
 

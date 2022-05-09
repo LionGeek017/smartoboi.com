@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="col-lg-12">
-        <label class="form-control-label">Картинка</label>
+        <label class="form-control-label">Картинка jpeg, png (максимум 5 mb)</label>
         <input type="file" name="img" id="img" class="custom-input-file @error('img') is-invalid @enderror" data-multiple-caption=""/>
         <label for="img">
             <i class="fa fa-upload"></i>
