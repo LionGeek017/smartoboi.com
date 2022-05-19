@@ -35,6 +35,14 @@ $(document).ready(function() {
 
         $.ajax({
             headers: {'X-CSRF-TOKEN': token},
+            beforeSend: function() {
+                $('.save-parser-wallpapers').hide();
+                $('.button-loading').show();
+            },
+            complete: function() {
+                $('.save-parser-wallpapers').show();
+                $('.button-loading').hide();
+            },
             type: 'POST',
             url: url,
             data: {
@@ -44,6 +52,15 @@ $(document).ready(function() {
             },
             success: function(res) {
                 console.log(res);
+
+                $('input.checkbox_img, #checkbox_all').prop('checked', false);
+
+                $('.alert').show();
+                $('.alert-success .alert-content').text('Обои успешно загружены');
+
+                setTimeout(function() {
+                    $('.alert').hide();
+                }, 3000);
             }
         })
     })

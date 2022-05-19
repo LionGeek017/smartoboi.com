@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ URL::asset('libs/select2/dist/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('libs/flatpickr/dist/flatpickr.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('libs/swiper/dist/css/swiper.min.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     {{--    <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet" type="text/css">--}}
@@ -109,6 +110,13 @@
 
 <div class="main-content">
     @yield('main_content')
+</div>
+
+<div class="alert alert-modern alert-success" style="display: none;" role="alert">
+        <span class="badge badge-success badge-pill">
+            OK
+        </span>
+    <span class="alert-content"></span>
 </div>
 
 <footer class="footer footer-dark bg-dark mt-auto" id="footer-main">

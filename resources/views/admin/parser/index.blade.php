@@ -80,7 +80,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-sm btn-primary save-parser-wallpapers">Сохранить все</button>
+                                    <button type="submit" class="btn btn-sm btn-primary save-parser-wallpapers" style="display: block">Сохранить все</button>
+                                    <button type="button" class="btn btn-sm btn-primary button-loading" disabled style="display: none;">
+                                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                        Loading...
+                                    </button>
                                 </div>
                             </form>
                         </div>
