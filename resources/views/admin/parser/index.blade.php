@@ -44,7 +44,7 @@
                                     <strong>{{ $message }}</strong>
                                 </small>
                                 @enderror
-                            </div> 
+                            </div>
                             <div class="form-group">
                                 <label class="form-control-label">Страница</label>
                                 <select class="form-control" name="page">
@@ -65,10 +65,10 @@
                     @isset($responseJson)
                         <div class="text-center mt-5 mb-1">
                             <h5>Сохранить обои</h5>
-                            <small class="text-sm text-muted">Сохранить все обои с этой страницы</small>
+                            <small class="text-sm text-muted">Сохранить выбранные обои на этой странице</small>
                         </div>
                         <div>
-                            <form role="form" class="border p-4" method="POST" action="{{ route('aaadminca.parser.save') }}">
+                            <form role="form" id="form_save_parser_wallpapers" class="border p-4 form-save-parser-wallpapers" method="POST" action="{{ route('aaadminca.parser.save') }}">
                                 @csrf
                                 <input type="hidden" name="response_json" value="{{ json_encode($responseJson) }}" />
                                 <div class="form-group">
@@ -80,25 +80,38 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-sm btn-primary">Сохранить все</button>
+                                    <button type="submit" class="btn btn-sm btn-primary save-parser-wallpapers">Сохранить все</button>
                                 </div>
                             </form>
                         </div>
-                    @endisset    
+                    @endisset
                 </div>
                 <div class="col-md-8">
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <div class="custom-control custom-checkbox custom-control-inline">
+                                <input type="checkbox" class="custom-control-input" id="checkbox_all">
+                                <label class="custom-control-label" for="checkbox_all">Выбрать все</label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         @isset($responseJson)
                             @foreach ($responseJson['photos'] as $photo)
                                 <div class="col-md-3 pb-2">
-                                    <a href="#" onclick="event.preventDefault(); document.getElementById('form_save_picture_')"><img class="w-100" src="{{ $photo['src']['portrait'] }}" alt=""></a>
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" id="checkbox_img_{{ $photo['id'] }}" class="custom-control-input checkbox_img" name="img_ids[]" value="{{ $photo['id'] }}">
+                                        <label class="custom-control-label" for="checkbox_img_{{ $photo['id'] }}">
+                                            <img class="w-100" src="{{ $photo['src']['portrait'] }}" alt="">
+                                        </label>
+                                    </div>
                                 </div>
                             @endforeach
-                        @endisset    
+                        @endisset
                     </div>
                 </div>
             </div>
         </div>
-    </section>    
+    </section>
 
 @endsection

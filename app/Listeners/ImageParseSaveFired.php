@@ -31,16 +31,22 @@ class ImageParseSaveFired
         $jsonDecode = json_decode($jsonEncode);
         $photosJson = $jsonDecode->photos;
         $categoryId = $event->categoryId;
+        $imageIds = $event->imageIds;
 
         $count = 0;
         foreach($photosJson as $photo) {
             //if($count == 5) break;
 
-            $imgName = ImageController::resizeImagePost(request(), $photo);
-            $query = new Wallpaper();
-            $query->category_id = $categoryId;
-            $query->img = $imgName;
-            $query->save();
+            if(in_array($photo->id, $imageIds)) {
+                $imgName = ImageController::resizeImagePost(request(), $photo);
+                $query = new Wallpaper();
+                $query->category_id = $categoryId;
+                $query->img = $imgName;
+                $query->save();
+
+                $key = array_search($photo->id, $imageIds);
+                unset($imageIds[$key]);
+            }
 
             //$count++;
         }

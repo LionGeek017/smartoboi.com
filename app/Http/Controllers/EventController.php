@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    public static function imageParseSave($photosJsonString, $categoryId) {
-        Event::dispatch(new ImageParseSave($photosJsonString, $categoryId));
+    public static function imageParseSave($photosJsonString, $categoryId, $imageIds) {
+        Event::dispatch(new ImageParseSave($photosJsonString, $categoryId, $imageIds));
     }
 }

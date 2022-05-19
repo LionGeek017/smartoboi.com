@@ -35,13 +35,13 @@
 
 <body class="d-flex flex-column min-vh-100">
 
-<!--LiveInternet counter--><script>
-    new Image().src = "https://counter.yadro.ru/hit?r"+
-        escape(document.referrer)+((typeof(screen)=="undefined")?"":
-            ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
-                screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
-        ";h"+escape(document.title.substring(0,150))+
-        ";"+Math.random();</script><!--/LiveInternet-->
+{{--<!--LiveInternet counter--><script>--}}
+{{--    new Image().src = "https://counter.yadro.ru/hit?r"+--}}
+{{--        escape(document.referrer)+((typeof(screen)=="undefined")?"":--}}
+{{--            ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?--}}
+{{--                screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+--}}
+{{--        ";h"+escape(document.title.substring(0,150))+--}}
+{{--        ";"+Math.random();</script><!--/LiveInternet-->--}}
 
 <header class="header" id="header-main">
     <!-- Topbar -->
@@ -182,14 +182,14 @@
                             <i class="fab fa-facebook"></i>
                         </a>
                     </li>
-                    <li class="nav-item ali">
-                        <!--LiveInternet logo-->
-                        <a href="https://www.liveinternet.ru/click"
-                           target="_blank"><img src="https://counter.yadro.ru/logo?18.2"
-                                                title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"
-                                                alt="" style="border:0" width="88" height="31"/></a>
-                        <!--/LiveInternet-->
-                    </li>
+{{--                    <li class="nav-item ali">--}}
+{{--                        <!--LiveInternet logo-->--}}
+{{--                        <a href="https://www.liveinternet.ru/click"--}}
+{{--                           target="_blank"><img src="https://counter.yadro.ru/logo?18.2"--}}
+{{--                                                title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня"--}}
+{{--                                                alt="" style="border:0" width="88" height="31"/></a>--}}
+{{--                        <!--/LiveInternet-->--}}
+{{--                    </li>--}}
                 </ul>
             </div>
         </div>

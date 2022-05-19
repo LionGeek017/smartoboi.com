@@ -15,15 +15,17 @@ class ImageParseSave
     use Dispatchable, InteractsWithSockets, SerializesModels;
     public $photosJsonString = "";
     public $categoryId = null;
+    public $imageIds = [];
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($json, $id)
+    public function __construct($json, $id, $imageIds)
     {
         $this->photosJsonString = $json;
         $this->categoryId = $id;
+        $this->imageIds = $imageIds;
     }
 
     /**

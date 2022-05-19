@@ -33,7 +33,7 @@ class ParserController extends Controller
 
             $url = $queryUrl->link . $queryUrl->query;
             $token = '563492ad6f91700001000001e3e1d4e119674ca0b556694160272b15';
-            
+
             $response = Http::withToken($token)->get($url);
             $responseJson = $response->json();
 
@@ -53,11 +53,13 @@ class ParserController extends Controller
     }
 
     public function saveParser(Request $request) {
-
         $jsonEncode = $request->response_json;
         $categoryId = $request->category_id;
-        EventController::imageParseSave($jsonEncode, $categoryId);
+        $imageIds = $request->image_ids;
+        EventController::imageParseSave($jsonEncode, $categoryId, $imageIds);
 
-        return redirect()->route('aaadminca.wallpapers.index', ['category_id' => $categoryId]);
+        return response()->json(['result' => 'success'], 200);
+
+        //return redirect()->route('aaadminca.wallpapers.index', ['category_id' => $categoryId]);
     }
 }
