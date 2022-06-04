@@ -55,7 +55,7 @@ class WallpaperController extends Controller
 //                ->pluck('id')
 //                ->toArray();
 
-            $category_ids = Category::where('action', 1)
+            $category_ids = Category::where('active', 1)
                 ->pluck('id')
                 ->toArray();
 
