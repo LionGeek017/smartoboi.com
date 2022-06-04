@@ -46,12 +46,16 @@ class WallpaperController extends Controller
                 $query = $query->whereIn('category_id', $category_ids);
             }
         } else {
-            $main_category_ids = Category::where('category_id', 0)
-                //->where('slug', '!=', 'ukraine')
-                ->pluck('id')
-                ->toArray();
+//            $main_category_ids = Category::where('category_id', 0)
+//                //->where('slug', '!=', 'ukraine')
+//                ->pluck('id')
+//                ->toArray();
 
-            $category_ids = Category::whereIn('category_id', $main_category_ids)
+//            $category_ids = Category::whereIn('category_id', $main_category_ids)
+//                ->pluck('id')
+//                ->toArray();
+
+            $category_ids = Category::where('action', 1)
                 ->pluck('id')
                 ->toArray();
 
