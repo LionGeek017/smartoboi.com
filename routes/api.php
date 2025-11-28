@@ -30,4 +30,6 @@ Route::prefix('v1')->group(function() {
     Route::get('database.getQuestions', [Api\QuestionController::class, 'getQuestion']);
 
     //Route::get('database.getImagePars', [Api\ImageParsController::class, 'getImagePars']);
+
+    Route::get('database.getProducer', [Api\ProducerController::class, 'getProducer']);
 });
